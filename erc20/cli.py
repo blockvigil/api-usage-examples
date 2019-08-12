@@ -50,9 +50,10 @@ def ev_login(api_endpoint, private_key):
 def deploy(ctx_obj):
     """
     Deploys a new instance of ERC20Mintable.sol on EthVigil.
-    When prompted, enter a list of constructor inputs to be passed on to the ERC20Mintable contract.
+    When prompted, enter a JSON-compatible list of constructor inputs to be passed on to the ERC20Mintable contract.
 
-    For example, ['My Token', 'SYMBOL', 18] corresponding to ERC20 standards: token name, token symbol, token decimals
+    For example, ["My Token", "SYMBOL", 18] corresponding to ERC20 standards: token name, token symbol, token decimals
+    NOTE: Enter double quoted strings. Single quoted strings are not supported as JSON serialized.
 
     Check deploy.py for a code example
     """
@@ -68,11 +69,20 @@ def deploy(ctx_obj):
             return
     click.echo('Enter the list of constructor inputs: ')
     constructor_inputs = input()
-    try:
-        constructor_inputs = json.loads(constructor_inputs)
-    except json.JSONDecodeError:
-        click.echo("Enter a valid JSON list for constructor inputs")
-        return
+    if constructor_inputs.strip() == "":
+        if click.confirm('Do you want to use the defaults ["My Token", "SYMBOL", 18]'):
+            constructor_inputs = ["My Token", "SYMBOL", 18]
+        else:
+            return
+    else:
+        try:
+            constructor_inputs = json.loads(constructor_inputs)
+        except json.JSONDecodeError:
+            click.echo("Enter a valid JSON list for constructor inputs")
+            if click.confirm('Do you want to use the defaults ["My Token", "SYMBOL", 18]'):
+                constructor_inputs = ["My Token", "SYMBOL", 18]
+            else:
+                return
     sig_msg = Account.signHash(message_hash, private_key)
     with open('./ERC20Mintable.sol', 'r') as f:
         contract_code = f.read()
