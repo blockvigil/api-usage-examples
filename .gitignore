@@ -1,0 +1,6 @@
+.idea
+erc20/settings.json
+erc20/.idea/
+erc20/.python-version
+erc20/.__pycache__/
+erc20/erc20_cli.egg-info/
