@@ -3,5 +3,5 @@
 settings.json
 .idea/
 .python-version
-.__pycache__/
+__pycache__/
 *.egg-info/

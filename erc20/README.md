@@ -1,4 +1,12 @@
-## Populate `settings.json`
+## Working with an ERC20 token contract
+
+The guide will introduce you to working with an ERC20 token contract via the EthVigil API endpoints.
+
+These steps are also packaged into a CLI tool designed in Python for you to play around with a pre-supplied ERC20 contract.
+
+## Please refer to [this doc](https://ethvigil.com/docs/erc20_example_code) for a walkthrough.
+
+### Populate `settings.json`
 Rename `settings.example.json` to `settings.json`
 
 These are the initial contents of the file:
@@ -20,7 +28,9 @@ Enter the appropriate values for the following keys
 * `ETHVIGIL_USER_ADDRESS` -- associated with the above private key
 * `ETHVIGIL_API_KEY` -- a token passed in HTTP request headers to authenticate POST calls. Works with GET calls too.
 
-Leave the `contractAddress` field as it is. 
+>Hint: If you have `ev-cli` installed, you can use [dumpsettings](https://ethvigil.com/docs/cli_onboarding#backup-settings-and-recover-later) to recover your EthVigil credentials
+
+Leave the `contractAddress` field as it is.
 Fill it up once you deploy the `ERC20Mintable.sol` contract through the python script.
 
 ## Setting up webhook listener server
@@ -31,9 +41,12 @@ Fill it up once you deploy the `ERC20Mintable.sol` contract through the python s
 
 ### Work directly with the CLI script
 Install the package requirements
+
 `pip install -r requirements.txt`
 
 `python cli.py deploy`
+
+**----OR----**
 
 ### Install as an executable
 
