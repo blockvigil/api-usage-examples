@@ -1,0 +1,6 @@
+dynaconf == 2.0.3
+eth_utils == 1.7.0
+eth_account == 0.4.0
+eth_abi == 2.0.0
+requests == 2.22.0
+tornado == 6.0.3
