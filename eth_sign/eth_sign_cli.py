@@ -1,6 +1,5 @@
 import click
 import requests
-import web3
 from eth_account.messages import defunct_hash_message
 from eth_account.account import Account
 from eth_abi import is_encodable
@@ -142,8 +141,7 @@ def sign_confirmation(unique_id, contractaddr, private_key):
     print('Signing data with settlementid, contractaddr...')
     print(unique_id)
     print(contractaddr)
-    # hash = solidityKeccak(abi_types=['uint256', 'address'], values=[unique_id, contractaddr], validity_check=True)
-    hash = web3.Web3.soliditySha3(abi_types=['uint256', 'address'], values=[unique_id, contractaddr])
+    hash = solidityKeccak(abi_types=['uint256', 'address'], values=[unique_id, contractaddr], validity_check=True)
     msg_hash = defunct_hash_message(hexstr=hash.hex())
     signed_msg_hash = Account.signHash(msg_hash, private_key)
     click.echo(f'Signed message hash: {signed_msg_hash.signature.hex()}')
