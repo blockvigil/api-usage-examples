@@ -1,4 +1,4 @@
-## Working with an ERC20 token contract
+## Signing and Verifying messages in Ethereum
 
 The guide will introduce you to sending an offline signed message to a smart contract via the EthVigil API endpoints.
 The signing method used to demonstrate this example is the legacy [`eth_sign`](https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_sign)
@@ -9,7 +9,7 @@ These steps are also packaged into a CLI tool designed in Python for you to play
 
 
 
-## Please refer to [this doc](https://ethvigil.com/docs/erc20_example_code) for a walkthrough.
+## Please refer to [this doc](https://ethvigil.com/docs/eth_sign) for a walkthrough.
 
 ### Populate `settings.json`
 Rename `settings.example.json` to `settings.json`
@@ -88,6 +88,9 @@ Copy the contract address into settings.json
 ```
 
 ### Register the webhook listening endpoint with the EthVigil platform
+1. `python webhook_listener.py`
+
+2. `./ngrok http 5554`
 
 ```
 $ python eth_sign_cli.py registerhook https://4c1d746f.ngrok.io
