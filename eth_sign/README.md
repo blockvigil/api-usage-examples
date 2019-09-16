@@ -97,6 +97,8 @@ Succeeded in registering webhook with Ethvigil API...
 EthVigil Hook ID: 24
 ```
 
+>Refer back to the [CLI tool guide](https://ethvigil.com/docs/cli_onboarding.html#webhooks) or [web UI guide](https://ethvigil.com/docs/web_onboarding/#webhooks) to learn how to add webhook integrations on EthVigil beta
+
 ### Subscribe to all events emitted from this contract
 
 ``` 
