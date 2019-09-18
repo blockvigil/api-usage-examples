@@ -9,7 +9,7 @@ These steps are also packaged into a CLI tool designed in Python for you to play
 
 
 
-## Please refer to [this doc](https://ethvigil.com/docs/eth_sign) for a walkthrough.
+## Please refer to [this doc](https://ethvigil.com/docs/eth_sign_example_code/) for a walkthrough.
 
 ### Populate `settings.json`
 Rename `settings.example.json` to `settings.json`
