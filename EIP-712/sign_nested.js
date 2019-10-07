@@ -10,7 +10,6 @@ function parseSignature(signature) {
   }
 }
 
-
 window.onload = function (e) {
   var res = document.getElementById("response");
   res.style.display = "none";
@@ -35,10 +34,15 @@ window.onload = function (e) {
       { name: "verifyingContract", type: "address" }
     ];
 
-    const unit = [
+    const unit_type = [
       { name: 'actionType', type: 'string' },
       { name: 'timestamp', type: 'uint256' },
-      { name: 'authorizer', type: 'string' }
+      { name: 'authorizer', type: 'Identity' }
+    ];
+
+    const identity_type = [
+      { name: "userId", type: "uint256" },
+      { name: "wallet", type: "address" },
     ];
 
     const chainId = 8995;
@@ -50,16 +54,21 @@ window.onload = function (e) {
       verifyingContract: "0x8c1eD7e19abAa9f23c476dA86Dc1577F1Ef401f5"
     };
 
+
     var message = {
         actionType: 'Action7440',
         timestamp: 1570112162,
-        authorizer: 'auth239430'
-    };  // order of the fields is is important. Should correspond to the tuple type expected on the contract.
+        authorizer: {
+            userId: 123,
+            wallet: '0x00EAd698A5C3c72D5a28429E9E6D6c076c086997'
+        }
+    }; // order of the fields is is important. Should correspond to the tuple type expected on the contract.
 
     const data = JSON.stringify({
       types: {
         EIP712Domain: domain,
-        Unit: unit
+        Unit: unit_type,
+        Identity: identity_type,
       },
       domain: domainData,
       primaryType: "Unit",
@@ -83,10 +92,9 @@ window.onload = function (e) {
 
         res.style.display = "block";
         res.value = "SigR: "+signature.r+"\nSigS: "+signature.s+"\nSigV: "+signature.v+"\nSigner: "+signer;
-        res.value += "\n\nEIP-712 Message sent:\n"+data;
 
         var xhr = new XMLHttpRequest();
-        var url = 'http://localhost:6635/flat'
+        var url = 'http://localhost:6635/nested'
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-Type", "application/json");
 
@@ -100,8 +108,8 @@ window.onload = function (e) {
 
         var data = JSON.stringify({
             command: 'submitApproval',
-            // replace the following with the deployed EIP712FlatStruct.sol contract address
-            contractAddress: '0x015e2b267b9b889eb14aeec76d0bb3ac151487c3',
+            // replace the following with the deployed EIP712NestedStruct.sol contract address
+            contractAddress: '0x21f0f61eb0ce57374b1a3d053940f32e7f2e478b',
             messageObject: message,
             sigR: signature.r,
             sigS: signature.s,

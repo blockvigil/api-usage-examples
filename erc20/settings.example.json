@@ -1,7 +1,6 @@
 {
   "development": {
     "privatekey": "",
-    "contractAddress": "",
     "REST_API_ENDPOINT": "https://beta-api.ethvigil.com/v0.1",
     "INTERNAL_API_ENDPOINT": "https://beta.ethvigil.com/api",
     "ETHVIGIL_USER_ADDRESS": "0xaddr",
