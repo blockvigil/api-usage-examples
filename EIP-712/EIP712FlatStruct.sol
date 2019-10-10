@@ -63,7 +63,7 @@ contract EIP712FlatExample {
 
     }
 
-    function verify() public view returns (bool) {
+    function testVerify() public view returns (bool) {
 
         Unit memory _msgobj = Unit({
            actionType: 'Action7440',
