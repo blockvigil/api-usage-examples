@@ -2,7 +2,7 @@ pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
 contract EIP712NestedExample {
-    uint256 constant chainId = 8995;
+    uint256 constant chainId = 5; // for Goerli test net. Change it to suit your network.
 
     struct Unit {
         string actionType;
@@ -76,6 +76,7 @@ contract EIP712NestedExample {
 
     }
 
+    // this contains a pre-filled struct Unit and the signature values for the same struct calculated by sign_nested.js
     function testVerify() public view returns (bool) {
         Identity memory authorizer_obj = Identity({
             userId: 123,
@@ -88,9 +89,9 @@ contract EIP712NestedExample {
            authorizer: authorizer_obj
         });
 
-        bytes32 sigR = 0xcfb3bd23f71cbcaf4a98a0ad42634a01295223ea47c014eb5f6330f0429df3f9;
-        bytes32 sigS = 0x700c7d63d151ec66073484a5d4a1e6ab32f860d9f921fe3873a0056f569ca077;
-        uint8 sigV = 28;
+        bytes32 sigR = 0xa3fca59577ccc13eeac30d0e7bf3f851392cada84f8e96adeaaffd28432f32e3;
+        bytes32 sigS = 0x07af1f752bbae28378cd7c6cd495dfaf25dfc7ec93d872547367e0785cafd425;
+        uint8 sigV = 27;
 
         address signer = 0x00EAd698A5C3c72D5a28429E9E6D6c076c086997;
 

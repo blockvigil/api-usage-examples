@@ -41,7 +41,7 @@ window.onload = function (e) {
       { name: 'authorizer', type: 'string' }
     ];
 
-    const chainId = 8995;
+    const chainId = 5;
 
     const domainData = {
       name: "VerifierApp101",
@@ -83,7 +83,7 @@ window.onload = function (e) {
 
         res.style.display = "block";
         res.value = "SigR: "+signature.r+"\nSigS: "+signature.s+"\nSigV: "+signature.v+"\nSigner: "+signer;
-        res.value += "\n\nEIP-712 Message sent:\n"+data;
+//        res.value += "\n\nEIP-712 Message sent:\n"+data;
 
         var xhr = new XMLHttpRequest();
         var url = 'http://localhost:6635/flat'

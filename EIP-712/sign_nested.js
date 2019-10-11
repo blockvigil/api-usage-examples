@@ -45,7 +45,7 @@ window.onload = function (e) {
       { name: "wallet", type: "address" },
     ];
 
-    const chainId = 8995;
+    const chainId = 5;
 
     const domainData = {
       name: "VerifierApp101",
