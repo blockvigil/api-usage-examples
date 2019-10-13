@@ -83,7 +83,7 @@ class FlatStructHandler(BaseHandler):
                 'sigS': sig_s,
                 'sigV': sig_v
             }
-            tornado_logger.debug('Sending method args to submitApproval')
+            tornado_logger.debug('Sending method args to submitProof')
             tornado_logger.debug(method_args)
             r = requests.post(url=method_api_endpoint, json=method_args, headers=headers)
             tornado_logger.debug(r.text)
@@ -120,11 +120,15 @@ class NestedStructHandler(BaseHandler):
         request_json = tornado.escape.json_decode(self.request.body)
         # self.set_status(status_code=202)
         # self.write({'success': True})
-        command = request_json['command']
-        contract_address = request_json['contractAddress']
+        try:
+            command = request_json['command']
+        except KeyError:
+            command = ""
+        else:
+            contract_address = request_json['contractAddress']
         api_key = settings['ETHVIGIL_API_KEY']
         headers = {'accept': 'application/json', 'Content-Type': 'application/json', 'X-API-KEY': api_key}
-        if command == 'submitApproval':
+        if command == 'submitProof':
             # expand the message object into individual components
             # msg_obj = ["Action7440", 1570112162, [123, "0x00EAd698A5C3c72D5a28429E9E6D6c076c086997"]]
             # msg_obj_request_str = '["Action7440", 1570112162, [123, "0x00EAd698A5C3c72D5a28429E9E6D6c076c086997"]]'
@@ -145,7 +149,7 @@ class NestedStructHandler(BaseHandler):
                 'sigS': sig_s,
                 'sigV': sig_v
             }
-            tornado_logger.debug('Sending method args to submitApproval')
+            tornado_logger.debug('Sending method args to submitProof')
             tornado_logger.debug(method_args)
             r = requests.post(url=method_api_endpoint, json=method_args, headers=headers)
             tornado_logger.debug(r.text)

@@ -45,7 +45,8 @@ window.onload = function (e) {
       { name: "wallet", type: "address" },
     ];
 
-    const chainId = 5;
+    const chainId = 5;  // goerli test net
+//    const chainId = 42;
 
     const domainData = {
       name: "VerifierApp101",
@@ -107,9 +108,9 @@ window.onload = function (e) {
         };
 
         var data = JSON.stringify({
-            command: 'submitApproval',
+            command: 'submitProof',
             // replace the following with the deployed EIP712NestedStruct.sol contract address
-            contractAddress: '0x21f0f61eb0ce57374b1a3d053940f32e7f2e478b',
+            contractAddress: '0xa8cc1c54969ad0df9bc7439af57bfedc1a5bd7f1',
             messageObject: message,
             sigR: signature.r,
             sigS: signature.s,

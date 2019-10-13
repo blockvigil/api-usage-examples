@@ -41,7 +41,8 @@ window.onload = function (e) {
       { name: 'authorizer', type: 'string' }
     ];
 
-    const chainId = 5;
+//    const chainId = 42;
+    const chainId = 5; // goerli testnet
 
     const domainData = {
       name: "VerifierApp101",
@@ -99,9 +100,9 @@ window.onload = function (e) {
         };
 
         var data = JSON.stringify({
-            command: 'submitApproval',
+            command: 'submitProof',
             // replace the following with the deployed EIP712FlatStruct.sol contract address
-            contractAddress: '0x015e2b267b9b889eb14aeec76d0bb3ac151487c3',
+            contractAddress: '0x45829f0d2e8f7509587f21fae2096588db850d72',
             messageObject: message,
             sigR: signature.r,
             sigS: signature.s,
