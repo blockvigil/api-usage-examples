@@ -102,7 +102,7 @@ window.onload = function (e) {
         var data = JSON.stringify({
             command: 'submitProof',
             // replace the following with the deployed EIP712FlatStruct.sol contract address
-            contractAddress: '0x45829f0d2e8f7509587f21fae2096588db850d72',
+            contractAddress: '0xe6aa5c6bea885386c09d638967ae2325b9584721',
             messageObject: message,
             sigR: signature.r,
             sigS: signature.s,
