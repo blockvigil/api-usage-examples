@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+Adapted from https://weijiekoh.github.io/eip712-signing-demo/index.html
+-->
+  <head>
+    <meta charset="utf-8" />
+    <title>EIP712 demo</title>
+  </head>
+  <body>
+    <p>
+      This page demonstrates how to sign EIP712 typed data using MetaMask and
+      verify it in Solidity. Feel free to learn from it and adapt it for your
+      dApp and smart contracts.
+    </p>
+
+    <button id="signBtn">Click here to sign some typed data</button>
+    <br />
+    <textarea readonly rows=10 cols=80 id="response">
+    </textarea>
+
+    <script src="./sign_nested.js" language="javascript"></script>
+  </body>
+</html>
