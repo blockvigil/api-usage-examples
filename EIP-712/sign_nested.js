@@ -110,7 +110,7 @@ window.onload = function (e) {
         var data = JSON.stringify({
             command: 'submitProof',
             // replace the following with the deployed EIP712NestedStruct.sol contract address
-            contractAddress: '0xa8cc1c54969ad0df9bc7439af57bfedc1a5bd7f1',
+            contractAddress: '0x583e7a6f0de3ecbe8e878878d5ac5c19bc1c807e',
             messageObject: message,
             sigR: signature.r,
             sigS: signature.s,
