@@ -63,7 +63,7 @@ contract EIP712FlatExample {
 
     }
 
-    // this contains a pre-filled struct Unit and the signature values for the same struct calculated by sign_nested.js
+    // this contains a pre-filled struct Unit and the signature values for the same struct calculated by sign.js
     function testVerify() public view returns (bool) {
 
         Unit memory _msgobj = Unit({
