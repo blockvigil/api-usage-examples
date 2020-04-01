@@ -8,7 +8,7 @@ import time
 
 
 async def consumer_contract(read_api_key, update_q: queue.Queue):
-    async with websockets.connect('wss://alpha.ethvigil.com/ws') as ws:
+    async with websockets.connect('wss://beta.ethvigil.com/ws') as ws:
         await ws.send(json.dumps({'command': 'register', 'key': read_api_key}))
         ack = await ws.recv()
         ack = json.loads(ack)
