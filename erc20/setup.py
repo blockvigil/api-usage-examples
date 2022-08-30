@@ -14,7 +14,7 @@ setup(
     install_requires=[
             'eth-utils == 1.6.1',
             'requests == 2.22.0',
-            'eth-account == 0.4.0',
+            'eth-account == 0.5.9',
             'click == 7.0',
             'tornado == 6.0.3'
         ],
